@@ -3,7 +3,7 @@
 locals {
   repository    = "https://charts.bitnami.com/bitnami"
   name          = "external-dns"
-  namespace      = coalescelist(kubernetes_namespace.this, [{ "metadata" = [{ "name" = var.namespace }] }])[0].metadata[0].name
+  namespace     = coalescelist(kubernetes_namespace.this, [{ "metadata" = [{ "name" = var.namespace }] }])[0].metadata[0].name
   chart         = "external-dns"
   chart_version = var.chart_version
   conf          = merge(local.conf_defaults, var.conf)
